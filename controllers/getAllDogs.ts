@@ -1,4 +1,6 @@
 import { Router, Request, Response } from 'express';
+import { Dogs } from '../models/dogs';
+import { units, Idog } from '../utils/units';
 import dotenv from 'dotenv';
 dotenv.config();
 import axios from 'axios'
@@ -10,7 +12,16 @@ const getAlldogs = async (req: Request, res: Response) => {
     try{
         const dogsApi = await axios.get(url);
         const dataSort = dogsApi.data.map((dog:sortDogsApi) => sortDogsApi(dog));
-        return res.json(dataSort);
+        const dogsDb = await Dogs.find();
+        const dogsMap = dogsDb.map((dog:Idog) => units(dog));
+
+        console.log(dogsMap);
+        //call back sort
+        const SortArray=(x:Idog, y:Idog)=>{
+            return x.name.localeCompare(y.name);
+          };
+        const response = dataSort.concat(dogsMap).sort((SortArray));
+        return res.json(response);
 
     }catch(err){
         console.log(err);
