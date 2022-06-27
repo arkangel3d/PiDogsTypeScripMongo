@@ -1,11 +1,32 @@
+
+// interface Idog {
+ 
+//     id: number;
+//     name: string;
+//     height:{
+//     imperial: string;
+//     metric: string;
+//     };
+//     weight:{
+//         imperial: string;
+//         metric: string;
+//     };
+//     life_span: string;
+//     temperament: [string];
+//     image: {
+//         url: string
+//     };
+   
+//   }
 interface Idog {
     id: number;
     name: string;
     height: any;
     weight: any;
     life_span: string;
-    imperial: string;
-    metric: string;
+    image: string;
+    temperament: [string];
+ 
   }
 
 const units = (dog:Idog)=>{
@@ -26,6 +47,7 @@ const units = (dog:Idog)=>{
           
 
     let dogData = {
+       
         id: dog.id,
         name: dog.name,
         height:{
@@ -37,11 +59,10 @@ const units = (dog:Idog)=>{
             metric: metricW
         },
         life_span: dog.life_span,
-        //temperament: dog.temperament,
-        // image : {
-        //     id : dog.image.id,
-        //     url : dog.image.url
-        // }
+        temperament: dog.temperament,
+        image : {
+            url : dog.image
+        }
 
     };
     return dogData;

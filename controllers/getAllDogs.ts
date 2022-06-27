@@ -15,7 +15,6 @@ const getAlldogs = async (req: Request, res: Response) => {
         const dogsDb = await Dogs.find();
         const dogsMap = dogsDb.map((dog:Idog) => units(dog));
 
-        console.log(dogsMap);
         //call back sort
         const SortArray=(x:Idog, y:Idog)=>{
             return x.name.localeCompare(y.name);

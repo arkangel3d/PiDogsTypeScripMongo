@@ -1,7 +1,7 @@
 
 
 interface image{
-    id : string,
+  
     url : string
 }
 interface sortDogsApi{
@@ -23,9 +23,9 @@ let sortDogsApi = (dog: sortDogsApi)=>{
         height: dog.height,
         weight: dog.weight,
         life_span: dog.life_span,
-        temperament: dog.temperament,
+        temperament: dog.temperament?.split(", "),
         image : {
-            id : dog.image.id,
+     
             url : dog.image.url
         }
 
