@@ -1,7 +1,5 @@
 import { Schema, model } from 'mongoose';
 
-
-
 interface Idogs {
     id: number;
     name: string;

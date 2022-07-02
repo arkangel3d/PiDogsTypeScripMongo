@@ -1,28 +1,10 @@
 
-// interface Idog {
- 
-//     id: number;
-//     name: string;
-//     height:{
-//     imperial: string;
-//     metric: string;
-//     };
-//     weight:{
-//         imperial: string;
-//         metric: string;
-//     };
-//     life_span: string;
-//     temperament: [string];
-//     image: {
-//         url: string
-//     };
-   
-//   }
+
 interface Idog {
     id: number;
     name: string;
-    height: any;
-    weight: any;
+    height: string;
+    weight: string;
     life_span: string;
     image: string;
     temperament: [string];
@@ -42,7 +24,7 @@ const units = (dog:Idog)=>{
 
           const toMetric1W = Math.round(Number(numsDogWeight[0]) * 2.54).toString();
           const toMetric2W = Math.round(Number(numsDogWeight[1]) * 2.54).toString();
-          const metricW = `${toMetric1} - ${toMetric2}`;
+          const metricW = `${toMetric1W} - ${toMetric2W}`;
 
           
 
@@ -58,7 +40,7 @@ const units = (dog:Idog)=>{
             imperial: dogWeight,
             metric: metricW
         },
-        life_span: dog.life_span,
+        life_span: `${dog.life_span} years`,
         temperament: dog.temperament,
         image : {
             url : dog.image
