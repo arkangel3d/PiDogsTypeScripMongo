@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 
 app.use(morgan('dev'));
 
-app.use('/v1', router);
+app.use('/', router);
 
 const port = process.env.PORT || 3002;
 app.listen(port, () => {

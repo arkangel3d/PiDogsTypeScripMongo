@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import { Dogs } from '../models/dogs';
 import { units, Idog } from '../utils/units';
-import { Query } from 'mongoose';
+
 const getMyDogs = async (req: Request, res: Response) => {
     
     try {
